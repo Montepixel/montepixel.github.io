@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta
+    name="description"
+    content="Privacy Policy for the Georgia Traffic Exam Tickets mobile application."
+  >
+
+  <meta name="theme-color" content="#111827">
+
+  <title>Privacy Policy — Georgia Traffic Exam Tickets</title>
+
+  <style>
+    :root {
+      color-scheme: light dark;
+
+      --background: #f3f6fb;
+      --background-accent: #e7eef9;
+      --card: rgba(255, 255, 255, 0.94);
+      --card-secondary: #f8fafc;
+      --text: #172033;
+      --text-secondary: #5f6b7c;
+      --heading: #101828;
+      --border: #dfe7f1;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-soft: #e8f0ff;
+      --shadow: 0 22px 60px rgba(15, 23, 42, 0.10);
+      --header-background: rgba(243, 246, 251, 0.82);
+    }
+
+    [data-theme="dark"] {
+      --background: #0b1120;
+      --background-accent: #111a2d;
+      --card: rgba(17, 24, 39, 0.94);
+      --card-secondary: #151e2f;
+      --text: #e5e7eb;
+      --text-secondary: #aab4c4;
+      --heading: #f8fafc;
+      --border: #263248;
+      --accent: #7aa2ff;
+      --accent-hover: #a7beff;
+      --accent-soft: #172554;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.30);
+      --header-background: rgba(11, 17, 32, 0.84);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at top left,
+          var(--background-accent),
+          transparent 38%
+        ),
+        var(--background);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: 16px;
+      line-height: 1.72;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: var(--header-background);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 70px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--heading);
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: -0.01em;
+    }
+
+    .brand:hover {
+      color: var(--heading);
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
+    }
+
+    .theme-button {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      color: var(--heading);
+      background: var(--card);
+      cursor: pointer;
+      box-shadow: 0 5px 16px rgba(15, 23, 42, 0.06);
+      transition:
+        transform 0.16s ease,
+        border-color 0.16s ease;
+    }
+
+    .theme-button:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+    }
+
+    .theme-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 58px 0 80px;
+    }
+
+    .hero {
+      padding: 52px;
+      margin-bottom: 28px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(37, 99, 235, 0.12),
+          transparent 55%
+        ),
+        var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -120px;
+      top: -130px;
+      border-radius: 50%;
+      background: rgba(79, 70, 229, 0.13);
+      filter: blur(3px);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      max-width: 770px;
+      margin: 0;
+      font-size: clamp(38px, 6vw, 66px);
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 20px 0 0;
+      color: var(--text-secondary);
+      font-size: 18px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-item {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card-secondary);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .meta-item strong {
+      color: var(--heading);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      align-items: start;
+      gap: 28px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 98px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.07);
+    }
+
+    .sidebar-title {
+      margin: 0 0 14px;
+      color: var(--heading);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .toc {
+      display: grid;
+      gap: 4px;
+    }
+
+    .toc a {
+      padding: 8px 10px;
+      border-radius: 9px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.35;
+      transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
+    }
+
+    .toc a:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    .content {
+      min-width: 0;
+      padding: 46px;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .intro {
+      padding: 20px 22px;
+      margin-bottom: 38px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: var(--accent-soft);
+    }
+
+    .intro p {
+      margin: 0;
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    section:first-of-type {
+      margin-top: 0;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      font-size: 25px;
+    }
+
+    .section-number {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 10px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    ul {
+      margin: 14px 0 20px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 7px 0;
+      padding-left: 3px;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 0;
+      margin: 18px 0 22px;
+      list-style: none;
+    }
+
+    .service-list li {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--heading);
+      background: var(--card-secondary);
+      font-weight: 700;
+    }
+
+    .email-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card-secondary);
+    }
+
+    .email-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .email-label {
+      display: block;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .email-address {
+      display: block;
+      overflow-wrap: anywhere;
+      color: var(--heading);
+      font-weight: 750;
+    }
+
+    .footer {
+      padding-top: 34px;
+      color: var(--text-secondary);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer a {
+      font-weight: 700;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      color: white;
+      background: var(--accent);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.30);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      color: white;
+      background: var(--accent-hover);
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        padding-top: 34px;
+      }
+
+      .hero {
+        padding: 38px 32px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .toc {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .content {
+        padding: 36px 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner,
+      .page {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .brand span:last-child {
+        max-width: 210px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 30px 23px;
+        border-radius: 23px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .layout {
+        gap: 18px;
+      }
+
+      .sidebar {
+        padding: 20px;
+        border-radius: 18px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        padding: 29px 22px;
+        border-radius: 21px;
+      }
+
+      h2 {
+        align-items: flex-start;
+        font-size: 22px;
+      }
+
+      .section-number {
+        margin-top: -3px;
+      }
+
+      .service-list {
+        grid-template-columns: 1fr;
+      }
+
+      .email-card {
+        align-items: flex-start;
+      }
+
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .sidebar,
+      .back-to-top {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .content {
+        border: 0;
+        box-shadow: none;
+        background: white;
+      }
+
+      .hero {
+        padding: 0 0 30px;
+      }
+
+      .content {
+        padding: 0;
+      }
+
+      a {
+        color: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Go to the top of the page">
+        <span class="brand-icon" aria-hidden="true">
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </span>
+
+        <span>Georgia Traffic Exam Tickets</span>
+      </a>
+
+      <button
+        class="theme-button"
+        id="themeButton"
+        type="button"
+        aria-label="Change color theme"
+        title="Change color theme"
+      >
+        <svg
+          id="themeIcon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.42 1.42"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.42"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="page" id="top">
+    <header class="hero">
+      <div class="eyebrow">Legal information</div>
+
+      <h1>Privacy Policy</h1>
+
+      <p class="hero-description">
+        This Privacy Policy explains how the mobile application
+        “Georgia Traffic Exam Tickets” handles information when you use it.
+      </p>
+
+      <div class="hero-meta">
+        <div class="meta-item">
+          <strong>Last updated:</strong> May 31, 2026
+        </div>
+
+        <div class="meta-item">
+          <strong>Application:</strong> Georgia Traffic Exam Tickets
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Table of contents">
+        <p class="sidebar-title">Contents</p>
+
+        <nav class="toc">
+          <a href="#information-we-collect">1. Information We Collect</a>
+          <a href="#local-data-storage">2. Local Data Storage</a>
+          <a href="#advertising">3. Advertising</a>
+          <a href="#third-party-services">4. Third-Party Services</a>
+          <a href="#analytics">5. Analytics and Diagnostics</a>
+          <a href="#children">6. Children’s Privacy</a>
+          <a href="#data-sharing">7. Data Sharing</a>
+          <a href="#security">8. Data Security</a>
+          <a href="#choices">9. Your Choices</a>
+          <a href="#changes">10. Changes to This Policy</a>
+          <a href="#contact">11. Contact Us</a>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <div class="intro">
+          <p>
+            The App is provided by an individual developer. If you have any
+            questions about this Privacy Policy, you can contact us at
+            <a href="mailto:oddmotion.lab@gmail.com">
+              oddmotion.lab@gmail.com
+            </a>.
+          </p>
+        </div>
+
+        <section id="information-we-collect">
+          <h2>
+            <span class="section-number">1</span>
+            Information We Collect
+          </h2>
+
+          <p>
+            The App does not require account registration and does not ask users
+            to provide personal information such as name, phone number, address,
+            passport data, or payment information.
+          </p>
+
+          <p>
+            The App may store or process the following types of information:
+          </p>
+
+          <ul>
+            <li>App settings and preferences;</li>
+            <li>Selected language;</li>
+            <li>Selected vehicle category;</li>
+            <li>Learning progress;</li>
+            <li>Favorite questions;</li>
+            <li>Mistakes and statistics;</li>
+            <li>App usage data within the App;</li>
+            <li>Advertising identifiers;</li>
+            <li>Device and technical information;</li>
+            <li>
+              Diagnostic information related to app performance and advertising.
+            </li>
+          </ul>
+
+          <p>
+            The App itself does not determine, store, or request the user’s
+            country. The App does not use GPS, location permissions, IP
+            geolocation services, or a developer-owned backend to determine the
+            user’s location.
+          </p>
+
+          <p>
+            Some data is stored locally on your device and is not sent to our
+            own servers.
+          </p>
+        </section>
+
+        <section id="local-data-storage">
+          <h2>
+            <span class="section-number">2</span>
+            Local Data Storage
+          </h2>
+
+          <p>
+            The App may store learning progress, mistakes, favorites,
+            statistics, settings, selected language, selected vehicle category,
+            and other app preferences locally on your device.
+          </p>
+
+          <p>
+            This information is used to make the App work correctly and to
+            improve your learning experience.
+          </p>
+
+          <p>
+            You can delete this data by clearing the App data or uninstalling
+            the App from your device.
+          </p>
+        </section>
+
+        <section id="advertising">
+          <h2>
+            <span class="section-number">3</span>
+            Advertising
+          </h2>
+
+          <p>
+            The App may display advertisements through third-party advertising
+            services.
+          </p>
+
+          <p>
+            The App may use the following third-party advertising services:
+          </p>
+
+          <ul class="service-list">
+            <li>Google AdMob</li>
+            <li>Yandex Mobile Ads</li>
+          </ul>
+
+          <p>
+            The App first attempts to load ads through Google AdMob. If an ad is
+            not available, the App may attempt to load an ad through Yandex
+            Mobile Ads. If no ad is available, no advertisement is shown.
+          </p>
+
+          <p>
+            Third-party advertising services may collect and process certain
+            data, including advertising identifiers, device information, app
+            interaction data, approximate location inferred by the advertising
+            provider, IP address, and diagnostic information.
+          </p>
+
+          <p>
+            These services process data according to their own privacy policies.
+          </p>
+        </section>
+
+        <section id="third-party-services">
+          <h2>
+            <span class="section-number">4</span>
+            Third-Party Services
+          </h2>
+
+          <p>
+            The App may use third-party services for advertising, app
+            functionality, diagnostics, or technical purposes.
+          </p>
+
+          <p>Third-party services used by the App may include:</p>
+
+          <ul class="service-list">
+            <li>Google AdMob</li>
+            <li>Yandex Mobile Ads</li>
+          </ul>
+
+          <p>
+            The App no longer uses any third-party IP geolocation service to
+            determine the user’s country.
+          </p>
+
+          <p>
+            Third-party services may collect information in accordance with
+            their own privacy policies.
+          </p>
+        </section>
+
+        <section id="analytics">
+          <h2>
+            <span class="section-number">5</span>
+            Analytics and Diagnostics
+          </h2>
+
+          <p>
+            The App may process technical and diagnostic information to
+            understand how the App works, detect errors, improve performance,
+            and maintain stability.
+          </p>
+
+          <p>
+            This may include information such as device type, operating system
+            version, app version, crash logs, performance data, advertising
+            performance data, and app interaction data.
+          </p>
+        </section>
+
+        <section id="children">
+          <h2>
+            <span class="section-number">6</span>
+            Children’s Privacy
+          </h2>
+
+          <p>
+            The App is intended for general users who want to study road traffic
+            rules and driving test questions.
+          </p>
+
+          <p>
+            The App does not knowingly collect personal information from
+            children. If you believe that a child has provided personal
+            information through the App, please contact us and we will take
+            appropriate steps.
+          </p>
+        </section>
+
+        <section id="data-sharing">
+          <h2>
+            <span class="section-number">7</span>
+            Data Sharing
+          </h2>
+
+          <p>We do not sell users’ personal information.</p>
+
+          <p>
+            Information may be processed by third-party services used in the
+            App, such as advertising or technical service providers. These
+            providers process data according to their own privacy policies and
+            applicable laws.
+          </p>
+        </section>
+
+        <section id="security">
+          <h2>
+            <span class="section-number">8</span>
+            Data Security
+          </h2>
+
+          <p>
+            We use reasonable measures to protect information handled by the
+            App. However, no method of electronic storage or transmission over
+            the Internet is completely secure.
+          </p>
+        </section>
+
+        <section id="choices">
+          <h2>
+            <span class="section-number">9</span>
+            Your Choices
+          </h2>
+
+          <p>
+            You may limit or reset advertising identifiers through your device
+            settings.
+          </p>
+
+          <p>
+            You may delete locally stored App data by clearing the App data or
+            uninstalling the App.
+          </p>
+
+          <p>
+            You may also manage advertising personalization settings through
+            your device settings or through privacy controls provided by
+            advertising platforms.
+          </p>
+        </section>
+
+        <section id="changes">
+          <h2>
+            <span class="section-number">10</span>
+            Changes to This Privacy Policy
+          </h2>
+
+          <p>
+            We may update this Privacy Policy from time to time. Any changes
+            will be posted on this page with an updated “Last updated” date.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>
+            <span class="section-number">11</span>
+            Contact Us
+          </h2>
+
+          <p>
+            If you have any questions about this Privacy Policy, you can contact
+            us at:
+          </p>
+
+          <div class="email-card">
+            <div class="email-icon" aria-hidden="true">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-10 6L2 7"></path>
+              </svg>
+            </div>
+
+            <div>
+              <span class="email-label">Email</span>
+              <a
+                class="email-address"
+                href="mailto:oddmotion.lab@gmail.com"
+              >
+                oddmotion.lab@gmail.com
+              </a>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <footer class="footer">
+      <p>
+        © <span id="currentYear"></span> Georgia Traffic Exam Tickets.
+        All rights reserved.
+      </p>
+    </footer>
+  </main>
+
+  <a
+    class="back-to-top"
+    id="backToTop"
+    href="#top"
+    aria-label="Back to top"
+    title="Back to top"
+  >
+    <svg
+      width="21"
+      height="21"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </a>
+
+  <script>
+    const root = document.documentElement;
+    const themeButton = document.getElementById("themeButton");
+    const themeIcon = document.getElementById("themeIcon");
+    const backToTop = document.getElementById("backToTop");
+
+    const sunIcon = `
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.42 1.42"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.42"></path>
+    `;
+
+    const moonIcon = `
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+    `;
+
+    function getPreferredTheme() {
+      const savedTheme = localStorage.getItem("privacy-policy-theme");
+
+      if (savedTheme === "light" || savedTheme === "dark") {
+        return savedTheme;
+      }
+
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+
+    function applyTheme(theme) {
+      root.setAttribute("data-theme", theme);
+      themeIcon.innerHTML = theme === "dark" ? sunIcon : moonIcon;
+
+      const label =
+        theme === "dark"
+          ? "Switch to light theme"
+          : "Switch to dark theme";
+
+      themeButton.setAttribute("aria-label", label);
+      themeButton.setAttribute("title", label);
+    }
+
+    applyTheme(getPreferredTheme());
+
+    themeButton.addEventListener("click", () => {
+      const currentTheme = root.getAttribute("data-theme");
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+      localStorage.setItem("privacy-policy-theme", nextTheme);
+      applyTheme(nextTheme);
+    });
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 500);
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
