@@ -1,812 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="MontePixel Studio creates focused mobile apps for learning and everyday tasks.">
+  <meta name="theme-color" content="#050a0f">
+  <meta property="og:title" content="MontePixel Studio — useful apps, thoughtfully made">
+  <meta property="og:description" content="Independent mobile studio building focused learning tools.">
+  <meta property="og:image" content="/favicon.png">
   <link rel="icon" type="image/png" href="/favicon.png">
-  <title>MontePixelStudio</title>
-
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #07141b;
-      --bg-soft: #0b1c25;
-      --surface: rgba(15, 39, 50, 0.72);
-      --surface-solid: #0f2732;
-      --text: #f3f7f8;
-      --muted: #9eb2bb;
-      --line: rgba(190, 226, 239, 0.14);
-      --accent: #08b9ed;
-      --accent-light: #72dcf8;
-      --accent-dark: #033f52;
-      --shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 96px;
-    }
-
-    body {
-      min-height: 100vh;
-      margin: 0;
-      overflow-x: hidden;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 82% 8%, rgba(8, 185, 237, 0.13), transparent 28rem),
-        radial-gradient(circle at 10% 45%, rgba(8, 185, 237, 0.06), transparent 24rem),
-        var(--bg);
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    a:focus-visible {
-      outline: 3px solid var(--accent-light);
-      outline-offset: 4px;
-      border-radius: 6px;
-    }
-
-    .shell {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid transparent;
-      background: rgba(7, 20, 27, 0.8);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .header-inner {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 750;
-      letter-spacing: -0.02em;
-      text-decoration: none;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      background: var(--bg-soft);
-    }
-
-    .brand-mark img {
-      width: 30px;
-      height: 30px;
-      object-fit: contain;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 650;
-      text-decoration: none;
-      transition: color 0.18s ease;
-    }
-
-    .nav a:hover {
-      color: var(--text);
-    }
-
-    main {
-      display: block;
-    }
-
-    .hero {
-      min-height: 640px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
-      align-items: center;
-      gap: clamp(44px, 8vw, 100px);
-      padding: 88px 0 106px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin: 0 0 24px;
-      color: var(--accent-light);
-      font-size: 12px;
-      font-weight: 780;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(8, 185, 237, 0.12);
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 720px;
-      margin-bottom: 24px;
-      font-size: clamp(48px, 7vw, 86px);
-      line-height: 0.98;
-      letter-spacing: -0.06em;
-    }
-
-    .hero-copy {
-      max-width: 600px;
-      margin-bottom: 34px;
-      color: var(--muted);
-      font-size: clamp(18px, 2vw, 21px);
-      line-height: 1.65;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .button {
-      min-height: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0 20px;
-      border: 1px solid transparent;
-      border-radius: 13px;
-      font-size: 14px;
-      font-weight: 750;
-      text-decoration: none;
-      transition:
-        transform 0.18s ease,
-        background-color 0.18s ease,
-        border-color 0.18s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      color: #001f29;
-      background: var(--accent);
-      box-shadow: 0 10px 30px rgba(8, 185, 237, 0.2);
-    }
-
-    .button-primary:hover {
-      background: var(--accent-light);
-    }
-
-    .button-secondary {
-      color: var(--text);
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.025);
-    }
-
-    .button-secondary:hover {
-      border-color: rgba(114, 220, 248, 0.45);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .button-arrow {
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    .brand-visual {
-      position: relative;
-      aspect-ratio: 1 / 1;
-      display: grid;
-      place-items: center;
-      isolation: isolate;
-    }
-
-    .brand-visual::before {
-      content: "";
-      position: absolute;
-      inset: 5%;
-      z-index: -2;
-      border: 1px solid var(--line);
-      border-radius: 32%;
-      background:
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px),
-        radial-gradient(circle, rgba(8, 185, 237, 0.12), transparent 62%),
-        var(--surface);
-      background-size: 32px 32px, 32px 32px, auto, auto;
-      box-shadow: var(--shadow);
-      transform: rotate(6deg);
-    }
-
-    .brand-visual::after {
-      content: "";
-      position: absolute;
-      width: 62%;
-      height: 62%;
-      z-index: -1;
-      border-radius: 50%;
-      background: rgba(8, 185, 237, 0.12);
-      filter: blur(40px);
-    }
-
-    .brand-visual img {
-      width: 82%;
-      height: 82%;
-      object-fit: contain;
-      filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.28));
-      transform: translateY(-2%);
-    }
-
-    .section {
-      padding: 100px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-heading {
-      max-width: 700px;
-      margin-bottom: 44px;
-    }
-
-    h2 {
-      margin-bottom: 14px;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
-    }
-
-    .section-heading p,
-    .product-copy {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .product-card {
-      display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-      min-height: 460px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .product-preview {
-      position: relative;
-      min-height: 420px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border-right: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 50% 30%, rgba(8, 185, 237, 0.18), transparent 46%),
-        #091820;
-    }
-
-    .product-preview::before,
-    .product-preview::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border: 1px solid rgba(114, 220, 248, 0.18);
-      border-radius: 50%;
-    }
-
-    .product-preview::after {
-      width: 280px;
-      height: 280px;
-      opacity: 0.55;
-    }
-
-    .app-tile {
-      width: 176px;
-      min-height: 212px;
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      padding: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 34px;
-      background: rgba(15, 39, 50, 0.9);
-      box-shadow: 0 28px 50px rgba(0, 0, 0, 0.35);
-      transform: rotate(-4deg);
-    }
-
-    .road-sign {
-      width: 84px;
-      height: 84px;
-      display: grid;
-      place-items: center;
-      border: 7px solid #ffffff;
-      border-radius: 50%;
-      color: white;
-      background: #db3d36;
-      font-size: 26px;
-      font-weight: 850;
-      letter-spacing: -0.04em;
-    }
-
-    .app-tile span {
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.35;
-      text-align: center;
-    }
-
-    .product-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      padding: clamp(36px, 7vw, 72px);
-    }
-
-    .product-label {
-      margin-bottom: 18px;
-      color: var(--accent-light);
-      font-size: 12px;
-      font-weight: 780;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    h3 {
-      max-width: 520px;
-      margin-bottom: 18px;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-    }
-
-    .product-copy {
-      max-width: 560px;
-      margin-bottom: 28px;
-    }
-
-    .feature-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 0;
-      margin: 0 0 32px;
-      list-style: none;
-    }
-
-    .feature-list li {
-      padding: 8px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: #c9d8de;
-      background: rgba(255, 255, 255, 0.025);
-      font-size: 12px;
-      font-weight: 680;
-    }
-
-    .support-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      padding: clamp(32px, 6vw, 58px);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      background:
-        linear-gradient(115deg, rgba(8, 185, 237, 0.1), transparent 44%),
-        var(--surface);
-    }
-
-    .social-card {
-      position: relative;
-      min-height: 310px;
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      align-items: center;
-      gap: clamp(24px, 5vw, 54px);
-      overflow: hidden;
-      padding: clamp(34px, 6vw, 64px);
-      border: 1px solid rgba(114, 220, 248, 0.24);
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 8% 20%, rgba(255, 255, 255, 0.12), transparent 16rem),
-        linear-gradient(125deg, #0c3344 0%, #09222d 56%, #0b1c25 100%);
-      box-shadow: var(--shadow);
-    }
-
-    .social-card::after {
-      content: "@montepixeldev";
-      position: absolute;
-      right: -18px;
-      bottom: -27px;
-      color: rgba(255, 255, 255, 0.035);
-      font-size: clamp(58px, 9vw, 120px);
-      font-weight: 850;
-      letter-spacing: -0.07em;
-      white-space: nowrap;
-      pointer-events: none;
-    }
-
-    .social-icon {
-      width: clamp(82px, 11vw, 118px);
-      height: clamp(82px, 11vw, 118px);
-      position: relative;
-      z-index: 1;
-      flex: 0 0 auto;
-      filter: drop-shadow(0 18px 28px rgba(34, 158, 217, 0.24));
-    }
-
-    .social-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .social-content h2 {
-      margin-bottom: 12px;
-      font-size: clamp(30px, 4vw, 46px);
-    }
-
-    .social-content p {
-      max-width: 560px;
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.68;
-    }
-
-    .social-card .button {
-      position: relative;
-      z-index: 1;
-      white-space: nowrap;
-    }
-
-    .support-card h2 {
-      margin-bottom: 10px;
-      font-size: clamp(30px, 4vw, 44px);
-    }
-
-    .support-card p {
-      max-width: 600px;
-      margin-bottom: 0;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .footer {
-      min-height: 126px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 22px;
-    }
-
-    .footer a {
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 860px) {
-      .hero {
-        min-height: auto;
-        grid-template-columns: 1fr;
-        gap: 34px;
-        padding: 72px 0 84px;
-      }
-
-      .hero-content {
-        max-width: 720px;
-      }
-
-      .brand-visual {
-        width: min(500px, 88vw);
-        margin: 0 auto;
-      }
-
-      .product-card {
-        grid-template-columns: 1fr;
-      }
-
-      .social-card {
-        grid-template-columns: auto minmax(0, 1fr);
-      }
-
-      .social-card .button {
-        grid-column: 1 / -1;
-        width: 100%;
-      }
-
-      .product-preview {
-        min-height: 380px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .shell {
-        width: min(100% - 28px, 1160px);
-      }
-
-      .header-inner {
-        min-height: 70px;
-      }
-
-      .nav {
-        gap: 16px;
-      }
-
-      .nav a:first-child {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 58px;
-      }
-
-      h1 {
-        font-size: clamp(44px, 14vw, 64px);
-      }
-
-      .hero-copy {
-        font-size: 17px;
-      }
-
-      .brand-visual::before {
-        border-radius: 26%;
-      }
-
-      .section {
-        padding: 76px 0;
-      }
-
-      .product-card,
-      .social-card,
-      .support-card {
-        border-radius: 22px;
-      }
-
-      .social-card {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-
-      .social-icon {
-        width: 82px;
-        height: 82px;
-      }
-
-      .product-preview {
-        min-height: 330px;
-      }
-
-      .product-content {
-        padding: 34px 24px 38px;
-      }
-
-      .support-card,
-      .footer {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .support-card {
-        gap: 26px;
-      }
-
-      .support-card .button {
-        width: 100%;
-      }
-
-      .footer {
-        justify-content: center;
-        padding: 34px 0;
-      }
-
-      .footer-links {
-        justify-content: flex-start;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <title>MontePixel Studio — useful apps, thoughtfully made</title>
 </head>
-
 <body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="#top" aria-label="MontePixel Studio home">
-        <span class="brand-mark">
-          <img src="/favicon.png" alt="" width="30" height="30">
-        </span>
+      <a class="brand" href="#top" data-i18n-aria="homeAria" aria-label="MontePixel Studio home">
+        <span class="brand-mark"><img src="/favicon.png" alt="" width="33" height="33"></span>
         <span>MontePixel Studio</span>
       </a>
-
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#apps">Apps</a>
-        <a href="#social">Social</a>
-        <a href="#support">Support</a>
-      </nav>
+      <div class="header-actions">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#apps" data-i18n="navApps">Apps</a>
+          <a href="#social" data-i18n="navSocial">Community</a>
+          <a href="#support" data-i18n="navSupport">Support</a>
+        </nav>
+        <div class="lang-switcher" aria-label="Language">
+          <button class="lang-button" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+          <button class="lang-button" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-button" type="button" data-set-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="shell hero" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <p class="eyebrow">Independent Android studio</p>
-        <h1 id="hero-title">Small apps.<br>Real utility.</h1>
-        <p class="hero-copy">
-          We create focused Android experiences for learning and everyday tasks —
-          thoughtfully designed, straightforward to use.
-        </p>
+  <main id="main">
+    <section class="shell hero" id="top" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow" data-i18n="heroEyebrow">Independent mobile studio</p>
+        <h1 id="hero-title"><span data-i18n="heroLine1">Small apps.</span><br><span class="gradient-text" data-i18n="heroLine2">Real momentum.</span></h1>
+        <p class="hero-copy" data-i18n="heroCopy">We turn complicated learning into clear, focused experiences — beautifully designed and easy to use every day.</p>
         <div class="actions">
           <a class="button button-primary" href="#apps">
-            Explore our apps
-            <span class="button-arrow" aria-hidden="true">↓</span>
+            <span data-i18n="explore">Explore our apps</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
           </a>
           <a class="button button-secondary" href="mailto:oddmotion.lab@gmail.com">
-            Contact us
+            <span data-i18n="contact">Contact us</span>
           </a>
         </div>
       </div>
-
-      <div class="brand-visual" aria-hidden="true">
-        <img src="/favicon.png" alt="" width="512" height="512">
+      <div class="brand-orbit" aria-hidden="true">
+        <span class="orbit-glow"></span>
+        <div class="brand-core"><img src="/favicon.png" alt="" width="512" height="512"></div>
+        <span class="orbit-chip one" data-i18n="chip1">Focused learning</span>
+        <span class="orbit-chip two" data-i18n="chip2">Made with care</span>
       </div>
     </section>
 
     <section class="section" id="apps" aria-labelledby="apps-title">
       <div class="shell">
-        <div class="section-heading">
-          <p class="eyebrow">Our apps</p>
-          <h2 id="apps-title">Built for progress, not distraction.</h2>
-          <p>Practical tools with a clear purpose and a simple path forward.</p>
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="appsEyebrow">Our apps</p>
+          <h2 id="apps-title" data-i18n="appsTitle">Built for progress, not distraction.</h2>
+          <p data-i18n="appsCopy">Practical tools with a clear purpose, a calm interface, and a simple path forward.</p>
         </div>
-
-        <article class="product-card">
-          <div class="product-preview" aria-hidden="true">
-            <div class="app-tile">
-              <div class="road-sign">TEST</div>
-              <span>Georgia Driving<br>Theory Test</span>
+        <div class="app-grid">
+          <article class="app-card reveal">
+            <div class="app-visual" aria-hidden="true"><div class="road-sign">TEST</div></div>
+            <div class="app-content">
+              <p class="app-label" data-i18n="geLabel">Education · Android</p>
+              <h3 data-i18n="geTitle">Georgia Driving Theory Test</h3>
+              <p data-i18n="geCopy">Practice driving theory questions for Georgia and prepare for the exam with confidence.</p>
+              <div class="actions">
+                <a class="button button-primary" href="https://play.google.com/store/apps/details?id=com.montepixel.pddgeapp" target="_blank" rel="noopener noreferrer">
+                  <span data-i18n="googlePlay">Google Play</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
+                <a class="button button-secondary" href="/pddgeapp/privacy-policy.html" data-i18n="privacy">Privacy</a>
+              </div>
             </div>
-          </div>
+          </article>
 
-          <div class="product-content">
-            <p class="product-label">Education · Android</p>
-            <h3>Georgia Driving Theory Test</h3>
-            <p class="product-copy">
-              Practice official-style driving theory questions for Georgia and
-              prepare with confidence, one session at a time.
-            </p>
-            <ul class="feature-list" aria-label="App highlights">
-              <li>Practice questions</li>
-              <li>Focused learning</li>
-              <li>Made for Android</li>
-            </ul>
-            <div class="actions">
-              <a
-                class="button button-primary"
-                href="https://play.google.com/store/apps/details?id=com.montepixel.pddgeapp"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Get Georgia Driving Theory Test on Google Play"
-              >
-                Get it on Google Play
-                <span class="button-arrow" aria-hidden="true">↗</span>
-              </a>
-              <a class="button button-secondary" href="/pddgeapp/privacy-policy.html">
-                Privacy
-              </a>
+          <article class="app-card reveal">
+            <div class="app-visual uruguay" aria-hidden="true"><div class="road-sign">UY</div></div>
+            <div class="app-content">
+              <p class="app-label" data-i18n="uyLabel">Education · Android &amp; iOS</p>
+              <h3 data-i18n="uyTitle">Uruguay Driving Licence Test</h3>
+              <p data-i18n="uyCopy">Questions, mock exams, and road signs to help you prepare for Uruguay's driving test.</p>
+              <div class="actions">
+                <a class="button button-primary" href="https://t.me/montepixeldev" target="_blank" rel="noopener noreferrer">
+                  <span data-i18n="learnMore">Learn more</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                </a>
+                <a class="button button-secondary" href="/conducirtestURU/privacy-policy.html" data-i18n="privacy">Privacy</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section" id="social" aria-labelledby="social-title">
       <div class="shell">
-        <div class="social-card">
-          <img
-            class="social-icon"
-            src="/telegram-logo.png"
-            alt="Telegram"
-            width="128"
-            height="128"
-          >
-          <div class="social-content">
-            <p class="eyebrow">Developer channel</p>
-            <h2 id="social-title">Follow MontePixel on Telegram.</h2>
-            <p>
-              Development updates, app news, and notes from behind the scenes —
-              all in one place.
-            </p>
+        <div class="social-card reveal">
+          <img class="social-icon" src="/telegram-logo.png" alt="Telegram" width="128" height="128">
+          <div>
+            <p class="eyebrow" data-i18n="socialEyebrow">Behind the scenes</p>
+            <h2 id="social-title" data-i18n="socialTitle">Follow the build, not the hype.</h2>
+            <p data-i18n="socialCopy">Product updates, app news, and honest notes from an independent developer.</p>
           </div>
-          <a
-            class="button button-primary"
-            href="https://t.me/montepixeldev"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the MontePixel developer channel on Telegram"
-          >
-            Join @montepixeldev
-            <span class="button-arrow" aria-hidden="true">↗</span>
+          <a class="button button-primary" href="https://t.me/montepixeldev" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="joinTelegram">Join Telegram</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
         </div>
       </div>
@@ -814,35 +122,57 @@
 
     <section class="section" id="support" aria-labelledby="support-title">
       <div class="shell">
-        <div class="support-card">
+        <div class="support-card reveal">
           <div>
-            <p class="eyebrow">Support</p>
-            <h2 id="support-title">How can we help?</h2>
-            <p>
-              Questions, feedback, or an issue with one of our apps? Send us a
-              message and we’ll get back to you.
-            </p>
+            <p class="eyebrow" data-i18n="supportEyebrow">Human support</p>
+            <h2 id="support-title" data-i18n="supportTitle">Tell us what could be better.</h2>
+            <p data-i18n="supportCopy">Questions, feedback, or an issue with an app? Write directly to the developer.</p>
           </div>
-          <a class="button button-primary" href="mailto:oddmotion.lab@gmail.com">
-            oddmotion.lab@gmail.com
-          </a>
+          <a class="button button-primary" href="mailto:oddmotion.lab@gmail.com" data-i18n="writeUs">Write to us</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="shell footer">
-      <span>© 2026 MontePixel Studio</span>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© <span data-current-year>2026</span> MontePixel Studio</span>
       <div class="footer-links">
-        <a href="#apps">Apps</a>
-        <a href="https://t.me/montepixeldev" target="_blank" rel="noopener noreferrer">
-          Telegram
-        </a>
-        <a href="#support">Support</a>
-        <a href="/pddgeapp/privacy-policy.html">Privacy</a>
+        <a href="#apps" data-i18n="navApps">Apps</a>
+        <a href="https://t.me/montepixeldev" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="#support" data-i18n="navSupport">Support</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      en: {
+        title: "MontePixel Studio — useful apps, thoughtfully made", description: "MontePixel Studio creates focused mobile apps for learning and everyday tasks.",
+        skip: "Skip to content", homeAria: "MontePixel Studio home", navApps: "Apps", navSocial: "Community", navSupport: "Support",
+        heroEyebrow: "Independent mobile studio", heroLine1: "Small apps.", heroLine2: "Real momentum.", heroCopy: "We turn complicated learning into clear, focused experiences — beautifully designed and easy to use every day.",
+        explore: "Explore our apps", contact: "Contact us", chip1: "Focused learning", chip2: "Made with care", appsEyebrow: "Our apps", appsTitle: "Built for progress, not distraction.", appsCopy: "Practical tools with a clear purpose, a calm interface, and a simple path forward.",
+        geLabel: "Education · Android", geTitle: "Georgia Driving Theory Test", geCopy: "Practice driving theory questions for Georgia and prepare for the exam with confidence.", uyLabel: "Education · Android & iOS", uyTitle: "Uruguay Driving Licence Test", uyCopy: "Questions, mock exams, and road signs to help you prepare for Uruguay's driving test.", googlePlay: "Google Play", privacy: "Privacy", learnMore: "Learn more",
+        socialEyebrow: "Behind the scenes", socialTitle: "Follow the build, not the hype.", socialCopy: "Product updates, app news, and honest notes from an independent developer.", joinTelegram: "Join Telegram", supportEyebrow: "Human support", supportTitle: "Tell us what could be better.", supportCopy: "Questions, feedback, or an issue with an app? Write directly to the developer.", writeUs: "Write to us"
+      },
+      ru: {
+        title: "MontePixel Studio — полезные приложения с характером", description: "MontePixel Studio создаёт понятные мобильные приложения для учёбы и повседневных задач.",
+        skip: "Перейти к содержанию", homeAria: "Главная MontePixel Studio", navApps: "Приложения", navSocial: "Сообщество", navSupport: "Поддержка",
+        heroEyebrow: "Независимая мобильная студия", heroLine1: "Меньше шума.", heroLine2: "Больше прогресса.", heroCopy: "Превращаем сложное обучение в понятный и сфокусированный опыт — красивый, спокойный и удобный каждый день.",
+        explore: "Смотреть приложения", contact: "Связаться", chip1: "Учёба без шума", chip2: "Сделано с заботой", appsEyebrow: "Наши приложения", appsTitle: "Для прогресса, а не отвлечения.", appsCopy: "Практичные инструменты с ясной целью, спокойным интерфейсом и понятным следующим шагом.",
+        geLabel: "Образование · Android", geTitle: "ПДД и тесты Грузии", geCopy: "Тренируйтесь на вопросах по ПДД Грузии и готовьтесь к экзамену уверенно.", uyLabel: "Образование · Android и iOS", uyTitle: "Экзамен на права в Уругвае", uyCopy: "Вопросы, пробные экзамены и дорожные знаки для подготовки к экзамену в Уругвае.", googlePlay: "Google Play", privacy: "Конфиденциальность", learnMore: "Подробнее",
+        socialEyebrow: "Изнутри студии", socialTitle: "Следите за работой, а не за хайпом.", socialCopy: "Обновления продуктов, новости приложений и честные заметки независимого разработчика.", joinTelegram: "Открыть Telegram", supportEyebrow: "Живая поддержка", supportTitle: "Расскажите, что улучшить.", supportCopy: "Есть вопрос, идея или проблема с приложением? Напишите напрямую разработчику.", writeUs: "Написать нам"
+      },
+      es: {
+        title: "MontePixel Studio — aplicaciones útiles, creadas con cuidado", description: "MontePixel Studio crea aplicaciones móviles claras para aprender y resolver tareas cotidianas.",
+        skip: "Ir al contenido", homeAria: "Inicio de MontePixel Studio", navApps: "Aplicaciones", navSocial: "Comunidad", navSupport: "Soporte",
+        heroEyebrow: "Estudio móvil independiente", heroLine1: "Apps pequeñas.", heroLine2: "Progreso real.", heroCopy: "Convertimos el aprendizaje complejo en experiencias claras y enfocadas: bonitas, tranquilas y fáciles de usar cada día.",
+        explore: "Ver aplicaciones", contact: "Contactarnos", chip1: "Aprendizaje enfocado", chip2: "Hecho con cuidado", appsEyebrow: "Nuestras aplicaciones", appsTitle: "Creadas para avanzar, no distraer.", appsCopy: "Herramientas prácticas con un objetivo claro, una interfaz serena y un camino sencillo.",
+        geLabel: "Educación · Android", geTitle: "Test de conducir de Georgia", geCopy: "Practica preguntas de conducción de Georgia y prepárate para el examen con confianza.", uyLabel: "Educación · Android y iOS", uyTitle: "Test de libreta de conducir Uruguay", uyCopy: "Preguntas, simulacros y señales de tránsito para preparar el examen de conducir en Uruguay.", googlePlay: "Google Play", privacy: "Privacidad", learnMore: "Más información",
+        socialEyebrow: "Entre bastidores", socialTitle: "Sigue el trabajo, no el ruido.", socialCopy: "Actualizaciones, noticias y notas honestas de un desarrollador independiente.", joinTelegram: "Abrir Telegram", supportEyebrow: "Soporte humano", supportTitle: "Cuéntanos qué podemos mejorar.", supportCopy: "¿Tienes una pregunta, sugerencia o problema con una app? Escribe directamente al desarrollador.", writeUs: "Escríbenos"
+      }
+    };
+  </script>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
