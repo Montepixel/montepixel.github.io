@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="MontePixel Studio creates focused mobile apps for learning and everyday tasks.">
+  <meta name="description" content="An independent developer creating useful Android apps, with photo tools, games, and iOS projects ahead.">
   <meta name="theme-color" content="#050a0f">
   <meta property="og:title" content="MontePixel Studio — useful apps, thoughtfully made">
-  <meta property="og:description" content="Independent mobile studio building focused learning tools.">
+  <meta property="og:description" content="Independent mobile developer building useful apps today and exploring photo tools, games, and iOS next.">
   <meta property="og:image" content="/favicon.png">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
@@ -14,6 +14,10 @@
   <title>MontePixel Studio — useful apps, thoughtfully made</title>
 </head>
 <body>
+  <div class="fx-field" aria-hidden="true">
+    <span class="fx-orb fx-orb-a"></span><span class="fx-orb fx-orb-b"></span>
+    <span class="fx-beam"></span><span class="fx-noise"></span>
+  </div>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
   <header class="site-header">
     <div class="shell header-inner">
@@ -39,37 +43,59 @@
   <main id="main">
     <section class="shell hero" id="top" aria-labelledby="hero-title">
       <div>
-        <p class="eyebrow" data-i18n="heroEyebrow">Independent mobile studio</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">Independent mobile developer</p>
         <h1 id="hero-title"><span data-i18n="heroLine1">Small apps.</span><br><span class="gradient-text" data-i18n="heroLine2">Real momentum.</span></h1>
-        <p class="hero-copy" data-i18n="heroCopy">We turn complicated learning into clear, focused experiences — beautifully designed and easy to use every day.</p>
+        <p class="hero-copy" data-i18n="heroCopy">I build useful Android apps with a clear interface and attention to detail. Photo tools, games, and iOS projects are next.</p>
         <div class="actions">
           <a class="button button-primary" href="#apps">
-            <span data-i18n="explore">Explore our apps</span>
+            <span data-i18n="explore">Explore my apps</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
           </a>
           <a class="button button-secondary" href="mailto:oddmotion.lab@gmail.com">
-            <span data-i18n="contact">Contact us</span>
+            <span data-i18n="contact">Contact me</span>
           </a>
         </div>
       </div>
       <div class="brand-orbit" aria-hidden="true">
         <span class="orbit-glow"></span>
-        <div class="brand-core"><img src="/favicon.png" alt="" width="512" height="512"></div>
-        <span class="orbit-chip one" data-i18n="chip1">Focused learning</span>
-        <span class="orbit-chip two" data-i18n="chip2">Made with care</span>
+        <div class="brand-core"><span class="core-scan"></span><img src="/favicon.png" alt="" width="512" height="512"></div>
+        <span class="orbit-chip one" data-i18n="chip1">Android now</span>
+        <span class="orbit-chip two" data-i18n="chip2">More platforms next</span>
+        <span class="orbit-node node-a"></span><span class="orbit-node node-b"></span><span class="orbit-node node-c"></span>
       </div>
     </section>
+
+    <div class="shell capability-rail" aria-label="Development directions">
+      <div class="rail-track">
+        <span><i></i><b data-i18n="railApps">Useful apps</b></span>
+        <span><i></i><b data-i18n="railPhoto">Photo tools</b></span>
+        <span><i></i><b data-i18n="railGames">Games</b></span>
+        <span><i></i><b data-i18n="railIos">iOS next</b></span>
+      </div>
+      <span class="rail-status"><i></i><span data-i18n="railStatus">Building independently</span></span>
+    </div>
 
     <section class="section" id="apps" aria-labelledby="apps-title">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="eyebrow" data-i18n="appsEyebrow">Our apps</p>
-          <h2 id="apps-title" data-i18n="appsTitle">Built for progress, not distraction.</h2>
-          <p data-i18n="appsCopy">Practical tools with a clear purpose, a calm interface, and a simple path forward.</p>
+          <p class="eyebrow" data-i18n="appsEyebrow">My apps</p>
+          <h2 id="apps-title" data-i18n="appsTitle">Two countries. One thoughtful approach.</h2>
+          <p data-i18n="appsCopy">The first Android releases are built for Georgia and Uruguay. The portfolio will grow beyond education.</p>
         </div>
         <div class="app-grid">
           <article class="app-card reveal">
-            <div class="app-visual" aria-hidden="true"><div class="road-sign">TEST</div></div>
+            <div class="app-visual georgia" aria-hidden="true">
+              <span class="country-ring"></span><span class="country-grid"></span>
+              <div class="flag-frame">
+                <svg class="country-flag" viewBox="0 0 180 120" role="img" aria-label="Flag of Georgia">
+                  <rect width="180" height="120" rx="8" fill="#fff"/>
+                  <path fill="#f3212d" d="M78 0h24v120H78zM0 48h180v24H0z"/>
+                  <path fill="#f3212d" d="M34 17h8v24h-8zM26 25h24v8H26zM138 17h8v24h-8zM130 25h24v8h-24zM34 79h8v24h-8zM26 87h24v8H26zM138 79h8v24h-8zM130 87h24v8h-24z"/>
+                </svg>
+                <span class="country-code">GE</span>
+              </div>
+              <span class="visual-label" data-i18n="geVisual">Made for Georgia</span>
+            </div>
             <div class="app-content">
               <p class="app-label" data-i18n="geLabel">Education · Android</p>
               <h3 data-i18n="geTitle">Georgia Driving Theory Test</h3>
@@ -85,9 +111,19 @@
           </article>
 
           <article class="app-card reveal">
-            <div class="app-visual uruguay" aria-hidden="true"><div class="road-sign">UY</div></div>
+            <div class="app-visual uruguay" aria-hidden="true">
+              <span class="country-ring"></span><span class="country-grid"></span>
+              <div class="flag-frame">
+                <svg class="country-flag" viewBox="0 0 180 120" role="img" aria-label="Flag of Uruguay">
+                  <defs><clipPath id="uy-clip"><rect width="180" height="120" rx="8"/></clipPath></defs>
+                  <g clip-path="url(#uy-clip)"><rect width="180" height="120" fill="#fff"/><path stroke="#187bcd" stroke-width="13.34" d="M0 20h180M0 46.7h180M0 73.3h180M0 100h180"/><rect width="73" height="66" fill="#fff"/><g transform="translate(36.5 33)" fill="#f5b800"><path d="M0-27 4-12 0-8-4-12zm0 54 4-15-4-4-4 4zM27 0l-15 4-4-4 4-4zM-27 0l15 4 4-4-4-4z"/><path d="m19-19-5 13-6 1-1-6zm-38 38 5-13 6-1 1 6zm38 0-13-5-1-6 6-1zm-38-38 13 5 1 6-6 1z"/><circle r="10"/></g></g>
+                </svg>
+                <span class="country-code">UY</span>
+              </div>
+              <span class="visual-label" data-i18n="uyVisual">Made for Uruguay</span>
+            </div>
             <div class="app-content">
-              <p class="app-label" data-i18n="uyLabel">Education · Android &amp; iOS</p>
+              <p class="app-label" data-i18n="uyLabel">Education · Android</p>
               <h3 data-i18n="uyTitle">Uruguay Driving Licence Test</h3>
               <p data-i18n="uyCopy">Questions, mock exams, and road signs to help you prepare for Uruguay's driving test.</p>
               <div class="actions">
@@ -108,9 +144,9 @@
         <div class="social-card reveal">
           <img class="social-icon" src="/telegram-logo.png" alt="Telegram" width="128" height="128">
           <div>
-            <p class="eyebrow" data-i18n="socialEyebrow">Behind the scenes</p>
-            <h2 id="social-title" data-i18n="socialTitle">Follow the build, not the hype.</h2>
-            <p data-i18n="socialCopy">Product updates, app news, and honest notes from an independent developer.</p>
+            <p class="eyebrow" data-i18n="socialEyebrow">Developer updates</p>
+            <h2 id="social-title" data-i18n="socialTitle">Developer’s Telegram channel.</h2>
+            <p data-i18n="socialCopy">Product updates, app news, release notes, and new experiments.</p>
           </div>
           <a class="button button-primary" href="https://t.me/montepixeldev" target="_blank" rel="noopener noreferrer">
             <span data-i18n="joinTelegram">Join Telegram</span>
@@ -125,10 +161,10 @@
         <div class="support-card reveal">
           <div>
             <p class="eyebrow" data-i18n="supportEyebrow">Human support</p>
-            <h2 id="support-title" data-i18n="supportTitle">Tell us what could be better.</h2>
+            <h2 id="support-title" data-i18n="supportTitle">Tell me what could be better.</h2>
             <p data-i18n="supportCopy">Questions, feedback, or an issue with an app? Write directly to the developer.</p>
           </div>
-          <a class="button button-primary" href="mailto:oddmotion.lab@gmail.com" data-i18n="writeUs">Write to us</a>
+          <a class="button button-primary" href="mailto:oddmotion.lab@gmail.com" data-i18n="writeUs">Write to me</a>
         </div>
       </div>
     </section>
@@ -148,28 +184,28 @@
   <script>
     window.PAGE_TRANSLATIONS = {
       en: {
-        title: "MontePixel Studio — useful apps, thoughtfully made", description: "MontePixel Studio creates focused mobile apps for learning and everyday tasks.",
+        title: "MontePixel Studio — useful apps, thoughtfully made", description: "An independent developer creating useful Android apps, with photo tools, games, and iOS projects ahead.",
         skip: "Skip to content", homeAria: "MontePixel Studio home", navApps: "Apps", navSocial: "Community", navSupport: "Support",
-        heroEyebrow: "Independent mobile studio", heroLine1: "Small apps.", heroLine2: "Real momentum.", heroCopy: "We turn complicated learning into clear, focused experiences — beautifully designed and easy to use every day.",
-        explore: "Explore our apps", contact: "Contact us", chip1: "Focused learning", chip2: "Made with care", appsEyebrow: "Our apps", appsTitle: "Built for progress, not distraction.", appsCopy: "Practical tools with a clear purpose, a calm interface, and a simple path forward.",
-        geLabel: "Education · Android", geTitle: "Georgia Driving Theory Test", geCopy: "Practice driving theory questions for Georgia and prepare for the exam with confidence.", uyLabel: "Education · Android & iOS", uyTitle: "Uruguay Driving Licence Test", uyCopy: "Questions, mock exams, and road signs to help you prepare for Uruguay's driving test.", googlePlay: "Google Play", privacy: "Privacy", learnMore: "Learn more",
-        socialEyebrow: "Behind the scenes", socialTitle: "Follow the build, not the hype.", socialCopy: "Product updates, app news, and honest notes from an independent developer.", joinTelegram: "Join Telegram", supportEyebrow: "Human support", supportTitle: "Tell us what could be better.", supportCopy: "Questions, feedback, or an issue with an app? Write directly to the developer.", writeUs: "Write to us"
+        heroEyebrow: "Independent mobile developer", heroLine1: "Small apps.", heroLine2: "Real momentum.", heroCopy: "I build useful Android apps with a clear interface and attention to detail. Photo tools, games, and iOS projects are next.",
+        explore: "Explore my apps", contact: "Contact me", chip1: "Android now", chip2: "More platforms next", railApps: "Useful apps", railPhoto: "Photo tools", railGames: "Games", railIos: "iOS next", railStatus: "Building independently", appsEyebrow: "My apps", appsTitle: "Two countries. One thoughtful approach.", appsCopy: "The first Android releases are built for Georgia and Uruguay. The portfolio will grow beyond education.",
+        geVisual: "Made for Georgia", uyVisual: "Made for Uruguay", geLabel: "Education · Android", geTitle: "Georgia Driving Theory Test", geCopy: "Practice driving theory questions for Georgia and prepare for the exam with confidence.", uyLabel: "Education · Android", uyTitle: "Uruguay Driving Licence Test", uyCopy: "Questions, mock exams, and road signs to help you prepare for Uruguay's driving test.", googlePlay: "Google Play", privacy: "Privacy", learnMore: "Learn more",
+        socialEyebrow: "Developer updates", socialTitle: "Developer’s Telegram channel.", socialCopy: "Product updates, app news, release notes, and new experiments.", joinTelegram: "Join Telegram", supportEyebrow: "Direct support", supportTitle: "Tell me what could be better.", supportCopy: "Questions, feedback, or an issue with an app? Write directly to me.", writeUs: "Write to me"
       },
       ru: {
-        title: "MontePixel Studio — полезные приложения с характером", description: "MontePixel Studio создаёт понятные мобильные приложения для учёбы и повседневных задач.",
+        title: "MontePixel Studio — полезные приложения с характером", description: "Независимый разработчик полезных Android-приложений. В планах — фотоинструменты, игры и проекты для iOS.",
         skip: "Перейти к содержанию", homeAria: "Главная MontePixel Studio", navApps: "Приложения", navSocial: "Сообщество", navSupport: "Поддержка",
-        heroEyebrow: "Независимая мобильная студия", heroLine1: "Меньше шума.", heroLine2: "Больше прогресса.", heroCopy: "Превращаем сложное обучение в понятный и сфокусированный опыт — красивый, спокойный и удобный каждый день.",
-        explore: "Смотреть приложения", contact: "Связаться", chip1: "Учёба без шума", chip2: "Сделано с заботой", appsEyebrow: "Наши приложения", appsTitle: "Для прогресса, а не отвлечения.", appsCopy: "Практичные инструменты с ясной целью, спокойным интерфейсом и понятным следующим шагом.",
-        geLabel: "Образование · Android", geTitle: "ПДД и тесты Грузии", geCopy: "Тренируйтесь на вопросах по ПДД Грузии и готовьтесь к экзамену уверенно.", uyLabel: "Образование · Android и iOS", uyTitle: "Экзамен на права в Уругвае", uyCopy: "Вопросы, пробные экзамены и дорожные знаки для подготовки к экзамену в Уругвае.", googlePlay: "Google Play", privacy: "Конфиденциальность", learnMore: "Подробнее",
-        socialEyebrow: "Изнутри студии", socialTitle: "Следите за работой, а не за хайпом.", socialCopy: "Обновления продуктов, новости приложений и честные заметки независимого разработчика.", joinTelegram: "Открыть Telegram", supportEyebrow: "Живая поддержка", supportTitle: "Расскажите, что улучшить.", supportCopy: "Есть вопрос, идея или проблема с приложением? Напишите напрямую разработчику.", writeUs: "Написать нам"
+        heroEyebrow: "Независимый мобильный разработчик", heroLine1: "Меньше шума.", heroLine2: "Больше пользы.", heroCopy: "Создаю полезные Android-приложения с понятным интерфейсом и вниманием к деталям. Дальше — фотоинструменты, игры и проекты для iOS.",
+        explore: "Смотреть приложения", contact: "Связаться", chip1: "Сейчас — Android", chip2: "Дальше — больше", railApps: "Полезные приложения", railPhoto: "Фотоинструменты", railGames: "Игры", railIos: "В планах iOS", railStatus: "Разрабатываю независимо", appsEyebrow: "Мои приложения", appsTitle: "Две страны. Один вдумчивый подход.", appsCopy: "Первые Android-приложения созданы для Грузии и Уругвая. Дальше портфолио выйдет за рамки обучения.",
+        geVisual: "Для Грузии", uyVisual: "Для Уругвая", geLabel: "Образование · Android", geTitle: "ПДД и тесты Грузии", geCopy: "Тренируйтесь на вопросах по ПДД Грузии и готовьтесь к экзамену уверенно.", uyLabel: "Образование · Android", uyTitle: "Экзамен на права в Уругвае", uyCopy: "Вопросы, пробные экзамены и дорожные знаки для подготовки к экзамену в Уругвае.", googlePlay: "Google Play", privacy: "Конфиденциальность", learnMore: "Подробнее",
+        socialEyebrow: "Новости разработки", socialTitle: "Telegram-канал разработчика.", socialCopy: "Обновления продуктов, новости приложений, релизы и новые эксперименты.", joinTelegram: "Открыть Telegram", supportEyebrow: "Прямая поддержка", supportTitle: "Расскажите, что улучшить.", supportCopy: "Есть вопрос, идея или проблема с приложением? Напишите мне напрямую.", writeUs: "Написать мне"
       },
       es: {
-        title: "MontePixel Studio — aplicaciones útiles, creadas con cuidado", description: "MontePixel Studio crea aplicaciones móviles claras para aprender y resolver tareas cotidianas.",
+        title: "MontePixel Studio — aplicaciones útiles, creadas con cuidado", description: "Desarrollador móvil independiente de apps útiles para Android, con herramientas de foto, juegos e iOS en camino.",
         skip: "Ir al contenido", homeAria: "Inicio de MontePixel Studio", navApps: "Aplicaciones", navSocial: "Comunidad", navSupport: "Soporte",
-        heroEyebrow: "Estudio móvil independiente", heroLine1: "Apps pequeñas.", heroLine2: "Progreso real.", heroCopy: "Convertimos el aprendizaje complejo en experiencias claras y enfocadas: bonitas, tranquilas y fáciles de usar cada día.",
-        explore: "Ver aplicaciones", contact: "Contactarnos", chip1: "Aprendizaje enfocado", chip2: "Hecho con cuidado", appsEyebrow: "Nuestras aplicaciones", appsTitle: "Creadas para avanzar, no distraer.", appsCopy: "Herramientas prácticas con un objetivo claro, una interfaz serena y un camino sencillo.",
-        geLabel: "Educación · Android", geTitle: "Test de conducir de Georgia", geCopy: "Practica preguntas de conducción de Georgia y prepárate para el examen con confianza.", uyLabel: "Educación · Android y iOS", uyTitle: "Test de libreta de conducir Uruguay", uyCopy: "Preguntas, simulacros y señales de tránsito para preparar el examen de conducir en Uruguay.", googlePlay: "Google Play", privacy: "Privacidad", learnMore: "Más información",
-        socialEyebrow: "Entre bastidores", socialTitle: "Sigue el trabajo, no el ruido.", socialCopy: "Actualizaciones, noticias y notas honestas de un desarrollador independiente.", joinTelegram: "Abrir Telegram", supportEyebrow: "Soporte humano", supportTitle: "Cuéntanos qué podemos mejorar.", supportCopy: "¿Tienes una pregunta, sugerencia o problema con una app? Escribe directamente al desarrollador.", writeUs: "Escríbenos"
+        heroEyebrow: "Desarrollador móvil independiente", heroLine1: "Apps pequeñas.", heroLine2: "Utilidad real.", heroCopy: "Creo aplicaciones útiles para Android con una interfaz clara y atención al detalle. Después vendrán herramientas de foto, juegos y proyectos para iOS.",
+        explore: "Ver mis aplicaciones", contact: "Contactarme", chip1: "Ahora, Android", chip2: "Más plataformas después", railApps: "Aplicaciones útiles", railPhoto: "Herramientas de foto", railGames: "Juegos", railIos: "iOS después", railStatus: "Desarrollo independiente", appsEyebrow: "Mis aplicaciones", appsTitle: "Dos países. Un enfoque cuidado.", appsCopy: "Las primeras aplicaciones Android están creadas para Georgia y Uruguay. El portafolio crecerá más allá de la educación.",
+        geVisual: "Para Georgia", uyVisual: "Para Uruguay", geLabel: "Educación · Android", geTitle: "Test de conducir de Georgia", geCopy: "Practica preguntas de conducción de Georgia y prepárate para el examen con confianza.", uyLabel: "Educación · Android", uyTitle: "Test de libreta de conducir Uruguay", uyCopy: "Preguntas, simulacros y señales de tránsito para preparar el examen de conducir en Uruguay.", googlePlay: "Google Play", privacy: "Privacidad", learnMore: "Más información",
+        socialEyebrow: "Novedades de desarrollo", socialTitle: "Canal de Telegram del desarrollador.", socialCopy: "Actualizaciones, noticias, lanzamientos y nuevos experimentos.", joinTelegram: "Abrir Telegram", supportEyebrow: "Soporte directo", supportTitle: "Cuéntame qué puedo mejorar.", supportCopy: "¿Tienes una pregunta, sugerencia o problema con una app? Escríbeme directamente.", writeUs: "Escríbeme"
       }
     };
   </script>
