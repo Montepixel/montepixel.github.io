@@ -1,6 +1,6 @@
 (function () {
-  const supported = ["ru", "en", "es"];
   const buttons = document.querySelectorAll("[data-set-lang]");
+  const supported = Array.from(buttons, (button) => button.dataset.setLang);
   const panels = document.querySelectorAll("[data-locale]");
   const translations = window.PAGE_TRANSLATIONS || {};
 
@@ -12,7 +12,7 @@
   }
 
   function setLanguage(lang, updateHash) {
-    if (!supported.includes(lang)) lang = "en";
+    if (!supported.includes(lang)) lang = supported.includes("en") ? "en" : supported[0];
     document.documentElement.lang = lang;
     localStorage.setItem("montepixel-language", lang);
 

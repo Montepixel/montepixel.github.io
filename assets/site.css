@@ -43,7 +43,13 @@ body::before {
 a { color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 4px; }
-img { max-width: 100%; }
+img { max-width: 100%; height: auto; }
+.fx-field { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+.fx-orb { position: absolute; width: min(44rem, 70vw); aspect-ratio: 1; border-radius: 50%; filter: blur(90px); opacity: .14; }
+.fx-orb-a { right: -18rem; top: 8rem; background: var(--accent); }
+.fx-orb-b { left: -22rem; top: 48%; background: var(--accent-2); }
+.fx-beam { position: absolute; width: 46rem; height: 1px; right: -8rem; top: 38%; background: linear-gradient(90deg, transparent, rgba(112,240,196,.28), transparent); transform: rotate(-28deg); }
+.fx-noise { position: absolute; inset: 0; opacity: .025; background-image: radial-gradient(circle, #fff 0 1px, transparent 1px); background-size: 12px 12px; }
 .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 .skip-link { position: fixed; left: 16px; top: -80px; z-index: 1000; padding: 12px 16px; border-radius: 12px; color: var(--accent-ink); background: var(--accent-2); font-weight: 800; transition: top .2s; }
 .skip-link:focus { top: 16px; }
@@ -98,6 +104,18 @@ h1 { max-width: 760px; margin-bottom: 25px; font-size: clamp(52px, 7.5vw, 92px);
 .orbit-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 14px var(--accent-2); }
 .orbit-chip.one { left: 0; top: 19%; }
 .orbit-chip.two { right: 0; bottom: 19%; }
+.orbit-node { position: absolute; width: 9px; aspect-ratio: 1; border: 2px solid var(--bg); border-radius: 50%; background: var(--accent); box-shadow: 0 0 16px currentColor; }
+.node-a { left: 16%; bottom: 22%; color: var(--accent); }
+.node-b { right: 7%; top: 35%; color: var(--accent-2); background: var(--accent-2); }
+.node-c { left: 38%; top: 4%; color: var(--accent-2); background: var(--accent-2); }
+
+.capability-rail { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: -35px; margin-bottom: 35px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 20px; background: rgba(9,19,27,.72); box-shadow: 0 16px 50px rgba(0,0,0,.18); backdrop-filter: blur(18px); }
+.rail-track { min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.rail-track span, .rail-status { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: 12px; }
+.rail-track b { color: var(--text); font-weight: 760; }
+.rail-track i, .rail-status i { width: 5px; height: 5px; flex: 0 0 auto; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px rgba(22,200,255,.7); }
+.rail-status { flex: 0 0 auto; padding: 8px 11px; border: 1px solid rgba(112,240,196,.16); border-radius: 999px; background: rgba(112,240,196,.055); }
+.rail-status i { background: var(--accent-2); box-shadow: 0 0 12px rgba(112,240,196,.75); }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes breathe { 50% { transform: scale(1.13); opacity: .7; } }
@@ -113,8 +131,13 @@ h1 { max-width: 760px; margin-bottom: 25px; font-size: clamp(52px, 7.5vw, 92px);
 .app-card:hover { transform: translateY(-6px); border-color: rgba(112,240,196,.35); }
 .app-visual { min-height: 280px; display: grid; place-items: center; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 50% 100%, rgba(22,200,255,.2), transparent 48%), rgba(255,255,255,.018); }
 .app-visual.uruguay { background: radial-gradient(circle at 50% 100%, rgba(112,240,196,.18), transparent 48%), rgba(255,255,255,.018); }
-.road-sign { width: 150px; aspect-ratio: 1; display: grid; place-items: center; border: 13px solid #ff405f; border-radius: 50%; color: #12202a; background: #fff; font-size: 22px; font-weight: 950; letter-spacing: -.04em; box-shadow: 0 28px 70px rgba(0,0,0,.35); transform: rotate(-5deg); }
-.uruguay .road-sign { border-radius: 26px; border-color: var(--accent-2); color: #042419; transform: rotate(5deg); }
+.country-ring { position: absolute; width: 235px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.11); border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.018), 0 0 0 64px rgba(255,255,255,.012); }
+.country-grid { position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(circle, black, transparent 72%); }
+.flag-frame { position: relative; width: min(230px, 64%); padding: 10px; border: 1px solid rgba(255,255,255,.2); border-radius: 17px; background: rgba(4,12,18,.78); box-shadow: 0 26px 65px rgba(0,0,0,.36); transform: rotate(-3deg); }
+.uruguay .flag-frame { transform: rotate(3deg); }
+.country-flag { width: 100%; height: auto; aspect-ratio: 3 / 2; display: block; border-radius: 9px; }
+.country-code { position: absolute; right: -14px; bottom: -15px; min-width: 48px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 12px; color: var(--accent-ink); background: var(--accent-2); font-size: 12px; font-weight: 900; letter-spacing: .12em; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+.visual-label { position: absolute; left: 20px; bottom: 18px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(5,10,15,.78); backdrop-filter: blur(12px); font-size: 11px; font-weight: 760; }
 .app-content { padding: 32px; }
 .app-label { margin-bottom: 12px; color: var(--accent-2); font-size: 12px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
 .app-content h3 { margin-bottom: 13px; font-size: 27px; letter-spacing: -.035em; }
@@ -154,6 +177,8 @@ h1 { max-width: 760px; margin-bottom: 25px; font-size: clamp(52px, 7.5vw, 92px);
 .privacy-content section:first-child { padding-top: 0; }
 .privacy-content section:last-child { padding-bottom: 0; border-bottom: 0; }
 .privacy-content h2 { margin-bottom: 16px; font-size: clamp(22px,3vw,30px); line-height: 1.2; letter-spacing: -.025em; }
+.privacy-content h3 { margin: 25px 0 12px; color: var(--text); font-size: clamp(17px,2vw,21px); line-height: 1.35; letter-spacing: -.015em; }
+.privacy-content ul { padding-left: 22px; }
 .privacy-content p, .privacy-content li { color: var(--muted); line-height: 1.75; }
 .privacy-content p { margin-bottom: 14px; }
 .privacy-content li { margin-bottom: 8px; }
@@ -166,7 +191,7 @@ h1 { max-width: 760px; margin-bottom: 25px; font-size: clamp(52px, 7.5vw, 92px);
 @media (max-width: 900px) {
   .nav { display: none; }
   .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 72px; }
-  .brand-orbit { width: min(520px, 92vw); margin: 0 auto; }
+  .brand-orbit { width: min(520px, 100%); margin: 0 auto; }
   .app-grid { grid-template-columns: 1fr; }
   .social-card { grid-template-columns: auto 1fr; }
   .social-card .button { grid-column: 1 / -1; }
@@ -179,9 +204,12 @@ h1 { max-width: 760px; margin-bottom: 25px; font-size: clamp(52px, 7.5vw, 92px);
   .header-inner { min-height: 70px; }
   .brand > span:last-child { display: none; }
   .lang-button { min-width: 38px; padding: 0 7px; }
-  h1 { font-size: clamp(46px, 16vw, 68px); }
+  h1 { font-size: clamp(42px, 13vw, 58px); }
   .hero { gap: 42px; padding: 62px 0 78px; }
   .orbit-chip { display: none; }
+  .capability-rail { align-items: flex-start; flex-direction: column; margin-top: -24px; padding: 17px; }
+  .rail-track { gap: 11px 16px; }
+  .rail-status { align-self: stretch; justify-content: center; }
   .section { padding: 76px 0; }
   .app-visual { min-height: 230px; }
   .app-content { padding: 26px 22px 28px; }
