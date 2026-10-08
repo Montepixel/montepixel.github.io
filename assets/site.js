@@ -7,6 +7,8 @@
   const supported = Array.from(buttons, (button) => button.dataset.setLang);
   const panels = document.querySelectorAll("[data-locale]");
   const translations = window.PAGE_TRANSLATIONS || {};
+  const motionPermission = document.querySelector("[data-motion-permission]");
+  const motionLabels = { ru: "Включить эффект движения", en: "Enable motion effect", es: "Activar efecto de movimiento" };
 
   function preferredLanguage() {
     const saved = localStorage.getItem("montepixel-language");
@@ -36,6 +38,7 @@
     if (translations[lang]?.title) document.title = translations[lang].title;
     const description = document.querySelector('meta[name="description"]');
     if (description && translations[lang]?.description) description.content = translations[lang].description;
+    if (motionPermission) motionPermission.setAttribute("aria-label", motionLabels[lang] || motionLabels.en);
     if (updateHash && location.hash.startsWith("#lang-")) history.replaceState(null, "", `#lang-${lang}`);
   }
 
@@ -91,29 +94,81 @@
     sections.forEach((section) => navObserver.observe(section));
   }
 
-  if (!reducedMotion && matchMedia("(pointer: fine)").matches) {
+  if (!reducedMotion) {
     const stage = document.querySelector("[data-parallax]");
     const mainCard = stage?.querySelector(".stage-main");
-    stage?.addEventListener("pointermove", (event) => {
-      const rect = stage.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - .5;
-      const y = (event.clientY - rect.top) / rect.height - .5;
-      mainCard.style.transform = `rotateY(${x * 7 - 6}deg) rotateX(${y * -6 + 2}deg) translate3d(${x * 8}px,${y * 8}px,0)`;
-    });
-    stage?.addEventListener("pointerleave", () => { mainCard.style.transform = ""; });
+    let ambientFrame = 0;
+    let nextAmbient = null;
 
-    document.querySelectorAll("[data-tilt]").forEach((card) => {
-      card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
+    function scheduleAmbient(clientX, clientY, shiftX, shiftY) {
+      nextAmbient = { clientX, clientY, shiftX, shiftY };
+      if (ambientFrame) return;
+      ambientFrame = requestAnimationFrame(() => {
+        root.style.setProperty("--glow-x", `${nextAmbient.clientX}px`);
+        root.style.setProperty("--glow-y", `${nextAmbient.clientY}px`);
+        root.style.setProperty("--ambient-shift-x", `${nextAmbient.shiftX}px`);
+        root.style.setProperty("--ambient-shift-y", `${nextAmbient.shiftY}px`);
+        ambientFrame = 0;
+      });
+    }
+
+    if (matchMedia("(pointer: fine)").matches) {
+      addEventListener("pointermove", (event) => {
+        const x = event.clientX / innerWidth - .5;
+        const y = event.clientY / innerHeight - .5;
+        scheduleAmbient(event.clientX, event.clientY, x * -10, y * -10);
+      }, { passive: true });
+
+      stage?.addEventListener("pointermove", (event) => {
+        const rect = stage.getBoundingClientRect();
         const x = (event.clientX - rect.left) / rect.width - .5;
         const y = (event.clientY - rect.top) / rect.height - .5;
-        card.style.setProperty("--rx", `${y * -2.6}deg`);
-        card.style.setProperty("--ry", `${x * 3.2}deg`);
+        mainCard.style.transform = `rotateY(${x * 7 - 6}deg) rotateX(${y * -6 + 2}deg) translate3d(${x * 8}px,${y * 8}px,0)`;
       });
-      card.addEventListener("pointerleave", () => {
-        card.style.setProperty("--rx", "0deg");
-        card.style.setProperty("--ry", "0deg");
+      stage?.addEventListener("pointerleave", () => { mainCard.style.transform = ""; });
+
+      document.querySelectorAll("[data-tilt]").forEach((card) => {
+        card.addEventListener("pointermove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - .5;
+          const y = (event.clientY - rect.top) / rect.height - .5;
+          card.style.setProperty("--rx", `${y * -2.6}deg`);
+          card.style.setProperty("--ry", `${x * 3.2}deg`);
+        });
+        card.addEventListener("pointerleave", () => {
+          card.style.setProperty("--rx", "0deg");
+          card.style.setProperty("--ry", "0deg");
+        });
       });
-    });
+    } else {
+      const handleOrientation = (event) => {
+        if (!Number.isFinite(event.gamma) || !Number.isFinite(event.beta)) return;
+        const x = Math.max(-1, Math.min(1, event.gamma / 35));
+        const y = Math.max(-1, Math.min(1, (event.beta - 40) / 45));
+        scheduleAmbient(innerWidth * (.5 + x * .22), innerHeight * (.42 + y * .16), x * -12, y * -10);
+        if (mainCard) mainCard.style.transform = `rotateY(${x * 3.5 - 4}deg) rotateX(${y * -3 + 1}deg) translate3d(${x * 5}px,${y * 5}px,0)`;
+      };
+
+      addEventListener("deviceorientation", handleOrientation, { passive: true });
+      if (motionPermission && typeof window.DeviceOrientationEvent?.requestPermission === "function") {
+        motionPermission.hidden = false;
+        motionPermission.addEventListener("click", async () => {
+          try {
+            const result = await window.DeviceOrientationEvent.requestPermission();
+            if (result === "granted") motionPermission.hidden = true;
+          } catch (_) {
+            motionPermission.hidden = true;
+          }
+        });
+      }
+
+      addEventListener("touchmove", (event) => {
+        const touch = event.touches[0];
+        if (!touch) return;
+        const x = touch.clientX / innerWidth - .5;
+        const y = touch.clientY / innerHeight - .5;
+        scheduleAmbient(touch.clientX, touch.clientY, x * -8, y * -8);
+      }, { passive: true });
+    }
   }
 })();
